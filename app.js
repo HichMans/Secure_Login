@@ -4,8 +4,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
-// const encrypt = require("mongoose-encryption"); Level2
-//const md5 = require('md5');Level3
+
 const app = express();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -26,12 +25,7 @@ const userSchema = new mongoose.Schema({
   password: String
 });
 
-// Level 2
-// userSchema.plugin(encrypt, {
-//   secret: process.env.SECRET,
-//   encryptedFields: ['password']
-// });
-//
+
 
 const User = new mongoose.model("user", userSchema);
 
@@ -54,9 +48,7 @@ app.route("/login")
       email: username
     }, (err, foundUser) => {
       if (foundUser) {
-        // if (foundUser.password === password) {
-        //   res.render("secrets");
-        // }
+
         bcrypt.compare(password, foundUser.password, function(err, result) {
           if (result == true) {res.render("secrets");}
          });
