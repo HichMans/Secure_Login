@@ -1,7 +1,7 @@
 {
   "name": "secrets",
   "version": "1.0.0",
-  "description": "Level 1 Authentification Project",
+  "description": " Authentication Project",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
